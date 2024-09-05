@@ -8,6 +8,10 @@
     padding: 0px;
 }
 
+body{
+    min-width: 300px;
+}
+
 a{
     text-decoration: none;
 }
@@ -61,25 +65,44 @@ a{
     transition: 0.3s;
 }
 
+#add2{
+    display: none;
+}
+
 .card-list{
     position: relative;
     display: block;
     flex-direction: column;
     width: calc(100vw - 40px);
-    height: 65vh;
+    height: 60vh;
     overflow-y: scroll;
     padding-left: 20px;
     padding-bottom: 20px;
 }
 
+.card-list::-webkit-scrollbar{
+    width: 5px;
+}
+
+.card-list::-webkit-scrollbar-thumb{
+    background-color: var(--bc02);
+    border-radius: 10px;
+}
+
+#card-list-sample{
+    height: auto;
+}
+
+#card-list-sample::-webkit-scrollbar {
+}
+
 #card-sample{
     position: relative;
-    margin-left: 20px;
     background-color: var(--bc01);
     color: var(--bc04);
     border-color: var(--bc03);
-    width: calc(100% - 85px);
     box-shadow: none;
+    /* margin-right: 0px; */
     
     .month{
         color: var(--bc04);
@@ -91,7 +114,7 @@ a{
     grid-template-columns: repeat(10, 1fr);
     grid-template-areas: "name name month reason reason reason reason reason reason reason";
     margin: 20px 20px 0px 0px;
-    box-shadow: 0px 0px 20px 6px rgba(17, 17, 26, 0.18);
+    box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
     border-radius: 10px;
     border-left: var(--bc01) 10px solid;
     height: 3rem;
@@ -111,6 +134,7 @@ a{
         grid-area: name;
         font-size: large;
         font-weight: bold;
+        padding-left: 15px;
     }
 
     .month{
@@ -125,5 +149,55 @@ a{
     .reason{
         grid-area: reason;
         padding-left: 15px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    #title{
+        font-size: x-large;
+        padding: 20px;
+    }
+
+    #add1{
+        display: none;
+    }
+
+    #add2{
+        display: block;
+    }
+
+    .tops{
+        /* flex-direction: column; */
+        padding: 0px 20px;
+        div{
+            margin-bottom: 10px;
+        }
+        h2{
+            font-size: medium;
+        }
+        .button-style{
+            content: '+';
+        }
+    }
+
+    .card-list{
+        padding: 0px 0px 10px 10px;
+        width: calc(100vw - 20px);
+    }
+
+    .card{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: 
+        "name name month"
+        "reason reason reason";
+        height: 6rem;
+        font-size: small;
+        margin: 10px 10px 0px 0px;
+        box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
+
+        .month{
+            border-right: none;
+        }
     }
 }
