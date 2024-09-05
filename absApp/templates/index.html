@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>おやすみとどけ</title>
+</head>
+
+<body>
+    <main>
+        <h1>おやすみとどけ</h1>
+        <hr>
+        <h2>とどいたとどけ</h2>
+        {% if books == [] %}
+        <div>
+            <p>今月のおやすみとどけはまだありません</p>
+        </div>
+        {% else %}
+        <div>
+            <table border="0">
+                <thead>
+                    <tr>
+                        <th>おなまえ（みょうじ）</th>
+                        <th>X月</th>
+                        <th>かんたんなりゆう</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                    <tr>
+                        <td>{{ book.name }}</td>
+                        <td>{{ book.month }}</td>
+                        <td>{{ book.reason }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+        <div>
+            <a href="{{ url_for('form') }}">あたらしいおやすみとどけをつくる</a>
+        </div>
+    </main>
+</body>

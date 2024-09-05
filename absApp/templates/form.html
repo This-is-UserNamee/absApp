@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>おやすみとどけ</title>
+</head>
+
+<body>
+    <h1>おやすみとどけ</h1>
+    <hr>
+    <h2>あたらしいおやすみとどけ</h2>
+    <form method="post" action="{{ url_for('register') }}">
+        <div>
+            <table border="0">
+                <tr>
+                    <th>おなまえ（みょうじ）</th>
+                    <th>X月</th>
+                    <th>かんたんなりゆう</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name" placeholder="すずき"></td>
+                    <td><input type="text" name="month"></td>
+                    <td><input type="text" name="reason" placeholder="おつかい"></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <input type="submit" value="ていしゅつ">
+        </div>
+    </form>
+</body>
+
+</html>
