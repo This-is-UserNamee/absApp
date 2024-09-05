@@ -1,0 +1,129 @@
+*{
+    --bc00: #000000;
+    --bc01: #3f3f3f;
+    --bc02: #7f7f7f;
+    --bc03: #bfbfbf;
+    --bc04: #ffffff;
+    margin: 0px;
+    padding: 0px;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+#title{
+    background-color: var(--bc01);
+    color: var(--bc04);
+    text-align: center;
+    margin: 0px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.tops{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 50px;
+
+    div{
+        display: flex;
+
+        h2{
+            margin-right: 20px;
+        }
+    }
+}
+
+.null-dialog{
+    margin: 20px;
+    color: var(--bc02);
+}
+
+#month-list{
+    position: relative;
+    left: 0px;
+}
+
+.button-style{
+    display: flex;
+    background-color: var(--bc01);
+    color: var(--bc04);
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    padding: 5px 20px;
+}
+
+.button-style:hover{
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.card-list{
+    position: relative;
+    display: block;
+    flex-direction: column;
+    width: calc(100vw - 40px);
+    height: 65vh;
+    overflow-y: scroll;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+#card-sample{
+    position: relative;
+    margin-left: 20px;
+    background-color: var(--bc01);
+    color: var(--bc04);
+    border-color: var(--bc03);
+    width: calc(100% - 85px);
+    box-shadow: none;
+    
+    .month{
+        color: var(--bc04);
+    }
+}
+
+.card{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas: "name name month reason reason reason reason reason reason reason";
+    margin: 20px 20px 0px 0px;
+    box-shadow: 0px 0px 20px 6px rgba(17, 17, 26, 0.18);
+    border-radius: 10px;
+    border-left: var(--bc01) 10px solid;
+    height: 3rem;
+
+    .name, 
+    .month, 
+    .reason{
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .name{
+        grid-area: name;
+        font-size: large;
+        font-weight: bold;
+    }
+
+    .month{
+        grid-area: month;
+        color: var(--bc00);
+        justify-content: center;
+        border: var(--bc03) solid;
+        border-width: 0px 1px;
+        margin: 10px 0px;
+    }
+
+    .reason{
+        grid-area: reason;
+        padding-left: 15px;
+    }
+}

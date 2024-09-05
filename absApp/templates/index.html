@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="ja">
-<!-- test -->
+
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>おやすみとどけ</title>
 </head>
 
 <body>
     <main>
-        <h1>おやすみとどけ</h1>
-        <hr>
-        <h2>とどいたとどけ</h2>
-        {% if books == [] %}
-        <div>
-            <p>今月のおやすみとどけはまだありません</p>
+        <h1 id="title">おやすみとどけ</h1>
+        <div class="tops">
+            <div>
+                <h2>とどいたとどけ</h2>
+                <select name="monthN" id="month-list">
+                    <option value="1">1月</option>
+                    <option value="2">2月</option>
+                    <option value="3">3月</option>
+                    <option value="4">4月</option>
+                    <option value="5">5月</option>
+                    <option value="6">6月</option>
+                    <option value="7">7月</option>
+                    <option value="8">8月</option>
+                    <option value="9">9月</option>
+                    <option value="10">10月</option>
+                    <option value="11">11月</option>
+                    <option value="12">12月</option>
+                </select>
+            </div>
+            <a class="button-style" href="{{ url_for('form') }}">+ついか</a>
         </div>
+        {% if books == [] %}
+        <div class="null-dialog">今月のおやすみとどけはまだありません</div>
         {% else %}
         <div>
             <table border="0">
-                <thead>
+                <!-- <thead>
                     <tr>
                         <th>おなまえ（みょうじ）</th>
                         <th>X月</th>
                         <th>かんたんなりゆう</th>
                     </tr>
-                </thead>
-                <tbody>
+                </thead> -->
+                <!-- <tbody>
                     {% for book in books %}
                     <tr>
                         <td>{{ book.name }}</td>
@@ -33,12 +50,29 @@
                         <td>{{ book.reason }}</td>
                     </tr>
                     {% endfor %}
-                </tbody>
+                </tbody> -->
+                <!-- <div class="card" id="card-sample">
+                    <div class="name">おなまえ</div>
+                    <div class="month">つき</div>
+                    <div class="reason">りゆう</div>
+                </div> -->
+                <div class="card" id="card-sample">
+                    <div class="name">おなまえ</div>
+                    <div class="month">つき</div>
+                    <div class="reason">りゆう</div>
+                </div>
+                <div class="card-list">
+                    {% for book in books %}
+                    <div class="card">
+                        <div class="name">{{ book.name }}</div>
+                        <div class="month">{{ book.month }}</div>
+                        <div class="reason">{{ book.reason }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
             </table>
         </div>
         {% endif %}
-        <div>
-            <a href="{{ url_for('form') }}">あたらしいおやすみとどけをつくる</a>
-        </div>
+        
     </main>
 </body>
