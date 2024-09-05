@@ -28,7 +28,8 @@
                     <option value="12">12月</option>
                 </select>
             </div>
-            <a class="button-style" href="{{ url_for('form') }}">+ついか</a>
+            <a class="button-style" id="add1" href="{{ url_for('form') }}">+ついか</a>
+            <a class="button-style" id="add2" href="{{ url_for('form') }}">+</a>
         </div>
         {% if books == [] %}
         <div class="null-dialog">今月のおやすみとどけはまだありません</div>
@@ -56,10 +57,12 @@
                     <div class="month">つき</div>
                     <div class="reason">りゆう</div>
                 </div> -->
-                <div class="card" id="card-sample">
-                    <div class="name">おなまえ</div>
-                    <div class="month">つき</div>
-                    <div class="reason">りゆう</div>
+                <div class="card-list" id="card-list-sample">
+                    <div class="card" id="card-sample">
+                        <div class="name">おなまえ</div>
+                        <div class="month">つき</div>
+                        <div class="reason">りゆう</div>
+                    </div>
                 </div>
                 <div class="card-list">
                     {% for book in books %}
