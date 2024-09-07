@@ -93,9 +93,6 @@ a{
     height: auto;
 }
 
-#card-list-sample::-webkit-scrollbar {
-}
-
 #card-sample{
     position: relative;
     background-color: var(--bc01);
