@@ -74,7 +74,7 @@ a{
     display: block;
     flex-direction: column;
     width: calc(100vw - 40px);
-    height: 60vh;
+    height: calc(100vh - 300px);
     overflow-y: scroll;
     padding-left: 20px;
     padding-bottom: 20px;
@@ -117,7 +117,7 @@ a{
     box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
     border-radius: 10px;
     border-left: var(--bc01) 10px solid;
-    height: 3rem;
+    min-height: 3rem;
 
     .name, 
     .month, 
@@ -125,9 +125,9 @@ a{
         display: flex;
         align-items: center;
         padding: 5px;
-        overflow: hidden;
+        /* overflow: hidden;
         white-space: nowrap;
-        text-overflow: ellipsis;
+        text-overflow: ellipsis; */
     }
 
     .name{
@@ -152,7 +152,7 @@ a{
     }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 800px){
     #title{
         font-size: x-large;
         padding: 20px;
@@ -191,10 +191,18 @@ a{
         grid-template-areas: 
         "name name month"
         "reason reason reason";
-        height: 6rem;
+        min-height: 6rem;
         font-size: small;
         margin: 10px 10px 0px 0px;
         box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
+
+        .name{
+            padding-bottom: 0px;
+        }
+
+        .reason{
+            padding-top: 0px;
+        }
 
         .month{
             border-right: none;
