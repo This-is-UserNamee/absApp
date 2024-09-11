@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-<<<<<<< HEAD
-=======
-<!-- test -->
-
->>>>>>> dddd570abbef1f0a84906e3c1e172b7033b3976b
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -36,8 +31,10 @@
                     <button>更新</button>
                 </form>
             </div>
-            <a class="button-style" id="add1" href="{{ url_for('form') }}">+ついか</a>
-            <a class="button-style" id="add2" href="{{ url_for('form') }}">+</a>
+            <!-- <a class="button-style" id="add1" href="{{ url_for('form') }}">+ついか</a>
+            <a class="button-style" id="add2" href="{{ url_for('form') }}">+</a> -->
+            <label for="form-chk" id="add1"><a class="button-style">+ついか</a></label>
+            <label for="form-chk" id="add2"><a class="button-style">+</a></label>
         </div>
         <div id="month-change">
             {% if month == [] %}
@@ -92,13 +89,29 @@
     </main>
 
     <input type="checkbox" name="" id="form-chk">
+    <div class="form-back"></div>
     <div class="form">
-        <h2>入力情報</h2>
-        <form method="post" action="{{ url_for('register') }}">
-            <input type="text" name="name" placeholder="すずき">
-            <input type="number" name="month" min="1" max="12">
-            <input type="text" name="reason" placeholder="おつかい">
-            <input type="submit" value="ていしゅつ">
+        <div class="form-tops">
+            <h2>あたらしいとどけ</h2>
+            <label for="form-chk">×</label>
+        </div>
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="form-content">
+                <div class="form-smalltxt">おなまえ</div>
+                <input type="text" name="name" placeholder="すずき" required>
+            </div>
+            <div class="form-content">
+                <div class="form-smalltxt">つき</div>
+                <input type="number" name="month" min="1" max="12" required>
+            </div>
+            <div class="form-content">
+                <div class="form-smalltxt">りゆう</div>
+                <textarea name="reason" rows="5" placeholder="おつかい" required></textarea>
+            </div>
+            <div class="form-content form-buttons-content">
+                <input class="form-button" type="submit" value="ていしゅつ">
+                <label class="form-button" for="form-chk">キャンセル</label>
+            </div>
         </form>
     </div>
 </body>
