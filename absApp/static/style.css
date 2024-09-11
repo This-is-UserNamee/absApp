@@ -61,7 +61,7 @@ a{
 }
 
 .button-style:hover{
-    opacity: 1;
+    opacity: 0.5;
     transition: 0.3s;
 }
 
@@ -173,7 +173,6 @@ a{
 
     .form-content{
         margin: 10px;
-        
 
         .form-smalltxt{
             font-size: x-small;
@@ -198,6 +197,12 @@ a{
         box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
         font-size: small;
         margin: 5px;
+    }
+
+    .form-button:hover,
+    .form-cancel:hover{
+        opacity: 0.5;
+        transition: 0.3s;
     }
 
     .form-buttons-content{
