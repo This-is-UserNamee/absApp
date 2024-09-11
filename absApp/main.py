@@ -90,7 +90,7 @@ def register():
         con.execute('INSERT INTO month12 VALUES(?, ?)', [name, reason])
     con.commit()
     con.close()
-    return redirect(url_for('index'))
+    return redirect(url_for('index', monthN = 'month'+month))
     
 
 if __name__ == '__main__':
