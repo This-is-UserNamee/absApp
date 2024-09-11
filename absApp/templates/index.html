@@ -91,9 +91,14 @@
 
     </main>
 
+    <input type="checkbox" name="" id="form-chk">
     <div class="form">
         <h2>入力情報</h2>
-        <input type="text" class="form-name">
-        <input type="text" class="form-reason">
+        <form method="post" action="{{ url_for('register') }}">
+            <input type="text" name="name" placeholder="すずき">
+            <input type="number" name="month" min="1" max="12">
+            <input type="text" name="reason" placeholder="おつかい">
+            <input type="submit" value="ていしゅつ">
+        </form>
     </div>
 </body>
