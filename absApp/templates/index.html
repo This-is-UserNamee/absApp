@@ -39,7 +39,8 @@
         </div>
         <div id="month-change">
             {% for month in months %}
-            {% set nm = loop.index - 1 %}
+            {% set n = loop.index - 1 %}
+            {% set nm = 'month'+n|string %}
             {% if month == [] %}
             <div class="null-dialog">
                 <h2>おやすみとどけはまだありません</h2>
@@ -56,7 +57,7 @@
                     <div class="card-list">
                         {% for instance in month %}
                         <div class="card" {{ nm }}>
-                            <h3>{{ nm }}</h3>
+                            <h3>{{ nm|string }}</h3>
                             <div class="name">{{ instance.name }}</div>
                             <div class="reason">{{ instance.reason }}</div>
                         </div>
