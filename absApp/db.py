@@ -7,6 +7,6 @@ def create_months_table():
     con = sqlite3.connect(DATABASE)
     while i < 12:
         i2 = i+1
-        con.execute("CREATE TABLE IF NOT EXISTS month"+str(i2)+" ( id, name, reason)")
+        con.execute("CREATE TABLE IF NOT EXISTS month"+str(i2)+" (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,reason TEXT)")
         i = i + 1
     con.close()
