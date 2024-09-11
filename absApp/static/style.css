@@ -1,9 +1,12 @@
-*{
+:root{
     --bc00: #000000;
     --bc01: #3f3f3f;
     --bc02: #7f7f7f;
     --bc03: #bfbfbf;
     --bc04: #ffffff;
+}
+
+*{
     margin: 0px;
     padding: 0px;
 }
@@ -40,11 +43,6 @@ a{
     }
 }
 
-.null-dialog{
-    margin: 20px;
-    color: var(--bc02);
-}
-
 #month-list{
     position: relative;
     left: 0px;
@@ -61,7 +59,7 @@ a{
 }
 
 .button-style:hover{
-    opacity: 1;
+    opacity: 0.5;
     transition: 0.3s;
 }
 
@@ -76,6 +74,7 @@ a{
     width: calc(100vw - 40px);
     height: calc(100vh - 300px);
     overflow-y: scroll;
+    overflow-x: hidden;
     padding-left: 20px;
     padding-bottom: 20px;
 }
@@ -165,6 +164,7 @@ a{
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
+    transition: 0.3s;
 
     form{
         padding: 20px;
@@ -172,7 +172,6 @@ a{
 
     .form-content{
         margin: 10px;
-        
 
         .form-smalltxt{
             font-size: x-small;
@@ -188,7 +187,6 @@ a{
     }
 
     .form-button{
-        /* border: var(--bc00) solid 1px; */
         background-color: var(--bc02);
         color: var(--bc04);
         border: none;
@@ -200,6 +198,13 @@ a{
 
     .form-buttons-content{
         display: flex;
+        justify-content: space-between;
+    }
+
+    .form-button:hover,
+    .form-cancel:hover{
+        opacity: 0.5;
+        transition: 0.3s;
     }
 }
 
@@ -237,6 +242,49 @@ a{
 #form-chk:checked ~ .form-back{
     opacity: 0.3;
     pointer-events: all;
+}
+
+.month1{
+    display: var(--month1-property);
+}
+.month2{
+    display: var(--month2-property);
+}
+.month3{
+    display: var(--month3-property);
+}
+.month4{
+    display: var(--month4-property);
+}
+.month5{
+    display: var(--month5-property);
+}
+.month6{
+    display: var(--month6-property);
+}
+.month7{
+    display: var(--month7-property);
+}
+.month8{
+    display: var(--month8-property);
+}
+.month9{
+    display: var(--month9-property);
+}
+.month10{
+    display: var(--month10-property);
+}
+.month11{
+    display: var(--month11-property);
+}
+.month12{
+    display: var(--month12-property);
+}
+
+.null-dialog{
+    display: var(--null-dialog-property);
+    margin: 20px;
+    color: var(--bc02);
 }
 
 @media screen and (max-width: 800px){
@@ -291,5 +339,9 @@ a{
         .month{
             border-right: none;
         }
+    }
+
+    .form{
+        width: 90vw;
     }
 }

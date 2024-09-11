@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" id="mainStyleSheet">
     <!-- <script src="{{ url_for('static', filename='js/test.js') }}"></script> -->
     <title>おやすみとどけ</title>
 </head>
@@ -14,23 +14,21 @@
         <div class="tops">
             <div>
                 <h2>とどいたとどけ</h2>
-                <form for="index.html">
-                    <select name="monthN" id="month-list">
-                        <option value="month1">1月</option>
-                        <option value="month2">2月</option>
-                        <option value="month3">3月</option>
-                        <option value="month4">4月</option>
-                        <option value="month5">5月</option>
-                        <option value="month6">6月</option>
-                        <option value="month7">7月</option>
-                        <option value="month8">8月</option>
-                        <option value="month9">9月</option>
-                        <option value="month10">10月</option>
-                        <option value="month11">11月</option>
-                        <option value="month12">12月</option>
-                    </select>
-                    <button>更新</button>
-                </form>
+                <select name="monthN" id="month-list">
+                    <option value="All">すべて</option>
+                    <option value="month1">1月</option>
+                    <option value="month2">2月</option>
+                    <option value="month3">3月</option>
+                    <option value="month4">4月</option>
+                    <option value="month5">5月</option>
+                    <option value="month6">6月</option>
+                    <option value="month7">7月</option>
+                    <option value="month8">8月</option>
+                    <option value="month9">9月</option>
+                    <option value="month10">10月</option>
+                    <option value="month11">11月</option>
+                    <option value="month12">12月</option>
+                </select>
             </div>
             <!-- <a class="button-style" id="add1" href="{{ url_for('form') }}">+ついか</a>
             <a class="button-style" id="add2" href="{{ url_for('form') }}">+</a> -->
@@ -38,34 +36,41 @@
             <label for="form-chk" id="add2"><a class="button-style">+</a></label>
         </div>
         <div id="month-change">
-            {% for month in months %}
-            {% set n = loop.index - 1 %}
-            {% set nm = 'card month'+n|string %}
-            {% if month == [] %}
-            <div class="null-dialog">
-                <h2>おやすみとどけはまだありません</h2>
-            </div>
-            {% else %}
+
             <div>
                 <table border="0">
                     <div class="card-list" id="card-list-sample">
                         <div class="card" id="card-sample">
                             <div class="name">おなまえ</div>
+                            <div class="month">つき</div>
                             <div class="reason">りゆう</div>
                         </div>
                     </div>
                     <div class="card-list">
+                        <div class="{{ nm }} null-dialog">
+                            <h2>おやすみとどけはまだありません</h2>
+                        </div>
+                        {% for month in months %}
+                        {% set n = loop.index - 1 %}
+                        {% set nm = 'month'+n|string %}
+                        <!-- {# {% if month == [] %}
+                        <div class="{{ nm }} null-dialog">
+                            <h2>おやすみとどけはまだありません</h2>
+                        </div>
+                        {% else %} #} -->
                         {% for instance in month %}
-                        <div class="{{ nm }}">
+                        <div class="card {{ nm }}">
                             <div class="name">{{ instance.name }}</div>
+                            <div class="month">{{ instance.month }}</div>
                             <div class="reason">{{ instance.reason }}</div>
                         </div>
+                        {% endfor %}
+                        {#{% endif %}#}
                         {% endfor %}
                     </div>
                 </table>
             </div>
-            {% endif %}
-            {% endfor %}
+
         </div>
 
     </main>
@@ -96,4 +101,5 @@
             </div>
         </form>
     </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
