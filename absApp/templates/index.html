@@ -39,30 +39,32 @@
         </div>
         <div id="month-change">
             {% for month in months %}
-                {% if month == [] %}
-                <div class="null-dialog">
-                    <h2>おやすみとどけはまだありません</h2>
-                </div>
-                {% else %}
-                <div>
-                    <table border="0">
-                        <div class="card-list" id="card-list-sample">
-                            <div class="card" id="card-sample">
-                                <div class="name">おなまえ</div>
-                                <div class="reason">りゆう</div>
-                            </div>
+            {% set nm = loop.index - 1 %}
+            {% if month == [] %}
+            <div class="null-dialog">
+                <h2>おやすみとどけはまだありません</h2>
+            </div>
+            {% else %}
+            <div>
+                <table border="0">
+                    <div class="card-list" id="card-list-sample">
+                        <div class="card" id="card-sample">
+                            <div class="name">おなまえ</div>
+                            <div class="reason">りゆう</div>
                         </div>
-                        <div class="card-list">
-                            {% for instance in month %}
-                            <div class="card">
-                                <div class="name">{{ instance.name }}</div>
-                                <div class="reason">{{ instance.reason }}</div>
-                            </div>
-                            {% endfor %}
+                    </div>
+                    <div class="card-list">
+                        {% for instance in month %}
+                        <div class="card" {{ nm }}>
+                            <h3>{{ nm }}</h3>
+                            <div class="name">{{ instance.name }}</div>
+                            <div class="reason">{{ instance.reason }}</div>
                         </div>
-                    </table>
-                </div>
-                {% endif %}
+                        {% endfor %}
+                    </div>
+                </table>
+            </div>
+            {% endif %}
             {% endfor %}
         </div>
 
