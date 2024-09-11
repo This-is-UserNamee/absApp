@@ -149,6 +149,15 @@ a{
     }
 }
 
+.form{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bc02);
+}
+
 @media screen and (max-width: 800px){
     #title{
         font-size: x-large;
