@@ -207,7 +207,6 @@ a{
 
     .form-buttons-content{
         display: flex;
-        justify-content: space-between;
     }
 }
 
