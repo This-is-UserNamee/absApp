@@ -165,6 +165,7 @@ a{
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
+    transition: 0.3s;
 
     form{
         padding: 20px;
@@ -177,6 +178,7 @@ a{
         .form-smalltxt{
             font-size: x-small;
             color: var(--bc02);
+            margin-bottom: 2px;
         }
     }
 
@@ -188,7 +190,6 @@ a{
     }
 
     .form-button{
-        /* border: var(--bc00) solid 1px; */
         background-color: var(--bc02);
         color: var(--bc04);
         border: none;
@@ -196,10 +197,12 @@ a{
         padding: 10px;
         box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
         font-size: small;
+        margin: 5px;
     }
 
     .form-buttons-content{
         display: flex;
+        justify-content: space-between;
     }
 }
 
@@ -212,6 +215,7 @@ a{
     opacity: 0;
     background-color: var(--bc02);
     pointer-events: none;
+    transition: 0.3s;
 }
 
 .form-tops{
@@ -291,5 +295,9 @@ a{
         .month{
             border-right: none;
         }
+    }
+
+    .form{
+        width: 80vw;
     }
 }
