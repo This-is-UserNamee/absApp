@@ -223,9 +223,8 @@ a{
     height: 100vh;
     width: 100vw;
     opacity: 0;
-    background-color: var(--bc02);
+    background-color: var(--bc00);
     pointer-events: none;
-    transition: 0.3s;
 }
 
 .form-tops{
@@ -249,7 +248,7 @@ a{
 }
 
 #form-chk:checked ~ .form-back{
-    opacity: 0.3;
+    opacity: 0.5;
     pointer-events: all;
 }
 
