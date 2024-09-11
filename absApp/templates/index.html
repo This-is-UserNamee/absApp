@@ -68,4 +68,31 @@
         </div>
 
     </main>
+
+    <input type="checkbox" name="" id="form-chk">
+    <div class="form-back"></div>
+    <div class="form">
+        <div class="form-tops">
+            <h2>あたらしいとどけ</h2>
+            <label for="form-chk" class="form-cancel">×</label>
+        </div>
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="form-content">
+                <div class="form-smalltxt">おなまえ</div>
+                <input type="text" name="name" placeholder="すずき" required>
+            </div>
+            <div class="form-content">
+                <div class="form-smalltxt">つき</div>
+                <input type="number" name="month" min="1" max="12" required>
+            </div>
+            <div class="form-content">
+                <div class="form-smalltxt">りゆう</div>
+                <textarea name="reason" rows="5" placeholder="おつかい" required></textarea>
+            </div>
+            <div class="form-content form-buttons-content">
+                <input class="form-button" type="submit" value="ていしゅつ">
+                <label class="form-button" for="form-chk">キャンセル</label>
+            </div>
+        </form>
+    </div>
 </body>
