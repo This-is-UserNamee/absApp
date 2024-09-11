@@ -61,7 +61,7 @@ a{
 }
 
 .button-style:hover{
-    opacity: 0.7;
+    opacity: 1;
     transition: 0.3s;
 }
 
@@ -74,7 +74,7 @@ a{
     display: block;
     flex-direction: column;
     width: calc(100vw - 40px);
-    height: 60vh;
+    height: calc(100vh - 300px);
     overflow-y: scroll;
     padding-left: 20px;
     padding-bottom: 20px;
@@ -91,9 +91,6 @@ a{
 
 #card-list-sample{
     height: auto;
-}
-
-#card-list-sample::-webkit-scrollbar {
 }
 
 #card-sample{
@@ -117,7 +114,7 @@ a{
     box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
     border-radius: 10px;
     border-left: var(--bc01) 10px solid;
-    height: 3rem;
+    min-height: 3rem;
 
     .name, 
     .month, 
@@ -125,9 +122,9 @@ a{
         display: flex;
         align-items: center;
         padding: 5px;
-        overflow: hidden;
+        /* overflow: hidden;
         white-space: nowrap;
-        text-overflow: ellipsis;
+        text-overflow: ellipsis; */
     }
 
     .name{
@@ -152,7 +149,97 @@ a{
     }
 }
 
-@media screen and (max-width: 600px){
+#form-chk{
+    display: none;
+}
+
+.form{
+    opacity: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;  
+    width: 50vw;
+    transform: translate(-50%, -50%);
+    background-color: var(--bc04);
+    pointer-events: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
+
+    form{
+        padding: 20px;
+    }
+
+    .form-content{
+        margin: 10px;
+        
+
+        .form-smalltxt{
+            font-size: x-small;
+            color: var(--bc02);
+        }
+    }
+
+    input[type="text"],
+    textarea{
+        width: 100%;
+        resize: none;
+        padding: 5px;
+    }
+
+    .form-button{
+        /* border: var(--bc00) solid 1px; */
+        background-color: var(--bc02);
+        color: var(--bc04);
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
+        font-size: small;
+    }
+
+    .form-buttons-content{
+        display: flex;
+    }
+}
+
+.form-back{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    background-color: var(--bc02);
+    pointer-events: none;
+}
+
+.form-tops{
+    display: flex;
+    background-color: var(--bc01);
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: var(--bc04);
+
+    h2{
+        color: var(--bc04);
+    }
+
+}
+
+#form-chk:checked ~ .form{
+    opacity: 1;
+    pointer-events: all;
+}
+
+#form-chk:checked ~ .form-back{
+    opacity: 0.3;
+    pointer-events: all;
+}
+
+@media screen and (max-width: 800px){
     #title{
         font-size: x-large;
         padding: 20px;
@@ -175,9 +262,6 @@ a{
         h2{
             font-size: medium;
         }
-        .button-style{
-            content: '+';
-        }
     }
 
     .card-list{
@@ -191,10 +275,18 @@ a{
         grid-template-areas: 
         "name name month"
         "reason reason reason";
-        height: 6rem;
+        min-height: 6rem;
         font-size: small;
         margin: 10px 10px 0px 0px;
         box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
+
+        .name{
+            padding-bottom: 0px;
+        }
+
+        .reason{
+            padding-top: 0px;
+        }
 
         .month{
             border-right: none;

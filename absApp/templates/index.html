@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-<!-- test -->
+
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- <script src="{{ url_for('static', filename='js/test.js') }}"></script> -->
     <title>おやすみとどけ</title>
 </head>
 
@@ -13,69 +14,84 @@
         <div class="tops">
             <div>
                 <h2>とどいたとどけ</h2>
-                <select name="monthN" id="month-list">
-                    <option value="1">1月</option>
-                    <option value="2">2月</option>
-                    <option value="3">3月</option>
-                    <option value="4">4月</option>
-                    <option value="5">5月</option>
-                    <option value="6">6月</option>
-                    <option value="7">7月</option>
-                    <option value="8">8月</option>
-                    <option value="9">9月</option>
-                    <option value="10">10月</option>
-                    <option value="11">11月</option>
-                    <option value="12">12月</option>
-                </select>
+                <form for="index.html">
+                    <select name="monthN" id="month-list">
+                        <option value="month1">1月</option>
+                        <option value="month2">2月</option>
+                        <option value="month3">3月</option>
+                        <option value="month4">4月</option>
+                        <option value="month5">5月</option>
+                        <option value="month6">6月</option>
+                        <option value="month7">7月</option>
+                        <option value="month8">8月</option>
+                        <option value="month9">9月</option>
+                        <option value="month10">10月</option>
+                        <option value="month11">11月</option>
+                        <option value="month12">12月</option>
+                    </select>
+                    <button>更新</button>
+                </form>
             </div>
-            <a class="button-style" id="add1" href="{{ url_for('form') }}">+ついか</a>
-            <a class="button-style" id="add2" href="{{ url_for('form') }}">+</a>
+            <!-- <a class="button-style" id="add1" href="{{ url_for('form') }}">+ついか</a>
+            <a class="button-style" id="add2" href="{{ url_for('form') }}">+</a> -->
+            <label for="form-chk" id="add1"><a class="button-style">+ついか</a></label>
+            <label for="form-chk" id="add2"><a class="button-style">+</a></label>
         </div>
-        {% if books == [] %}
-        <div class="null-dialog">今月のおやすみとどけはまだありません</div>
-        {% else %}
-        <div>
-            <table border="0">
-                <!-- <thead>
-                    <tr>
-                        <th>おなまえ（みょうじ）</th>
-                        <th>X月</th>
-                        <th>かんたんなりゆう</th>
-                    </tr>
-                </thead> -->
-                <!-- <tbody>
-                    {% for book in books %}
-                    <tr>
-                        <td>{{ book.name }}</td>
-                        <td>{{ book.month }}</td>
-                        <td>{{ book.reason }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody> -->
-                <!-- <div class="card" id="card-sample">
-                    <div class="name">おなまえ</div>
-                    <div class="month">つき</div>
-                    <div class="reason">りゆう</div>
-                </div> -->
-                <div class="card-list" id="card-list-sample">
-                    <div class="card" id="card-sample">
-                        <div class="name">おなまえ</div>
-                        <div class="month">つき</div>
-                        <div class="reason">りゆう</div>
-                    </div>
+        <div id="month-change">
+            {% for month in months %}
+                {% if month == [] %}
+                <div class="null-dialog">
+                    <h2>おやすみとどけはまだありません</h2>
                 </div>
-                <div class="card-list">
-                    {% for book in books %}
-                    <div class="card">
-                        <div class="name">{{ book.name }}</div>
-                        <div class="month">{{ book.month }}</div>
-                        <div class="reason">{{ book.reason }}</div>
-                    </div>
-                    {% endfor %}
+                {% else %}
+                <div>
+                    <table border="0">
+                        <div class="card-list" id="card-list-sample">
+                            <div class="card" id="card-sample">
+                                <div class="name">おなまえ</div>
+                                <div class="reason">りゆう</div>
+                            </div>
+                        </div>
+                        <div class="card-list">
+                            {% for instance in month %}
+                            <div class="card">
+                                <div class="name">{{ instance.name }}</div>
+                                <div class="reason">{{ instance.reason }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </table>
                 </div>
-            </table>
+                {% endif %}
+            {% endfor %}
         </div>
-        {% endif %}
-        
+
     </main>
+
+    <input type="checkbox" name="" id="form-chk">
+    <div class="form-back"></div>
+    <div class="form">
+        <div class="form-tops">
+            <h2>あたらしいとどけ</h2>
+            <label for="form-chk">×</label>
+        </div>
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="form-content">
+                <div class="form-smalltxt">おなまえ</div>
+                <input type="text" name="name" placeholder="すずき" required>
+            </div>
+            <div class="form-content">
+                <div class="form-smalltxt">つき</div>
+                <input type="number" name="month" min="1" max="12" required>
+            </div>
+            <div class="form-content">
+                <div class="form-smalltxt">りゆう</div>
+                <textarea name="reason" rows="5" placeholder="おつかい" required></textarea>
+            </div>
+            <div class="form-content form-buttons-content">
+                <input class="form-button" type="submit" value="ていしゅつ">
+                <label class="form-button" for="form-chk">キャンセル</label>
+            </div>
+        </form>
+    </div>
 </body>
