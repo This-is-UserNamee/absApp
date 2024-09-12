@@ -156,7 +156,7 @@ a{
 .delete{
     position: absolute;
     width: 1.2rem;
-    padding-right: 20px;
+    margin-right: 20px;
     right: 0%;
     bottom: 50%;
     transform: translate(0%, 55%);
