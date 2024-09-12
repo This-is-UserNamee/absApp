@@ -176,6 +176,7 @@ a{
         .form-smalltxt{
             font-size: x-small;
             color: var(--bc02);
+            margin-bottom: 2px;
         }
     }
 
@@ -194,6 +195,13 @@ a{
         padding: 10px;
         box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
         font-size: small;
+        margin: 5px;
+    }
+
+    .form-button:hover,
+    .form-cancel:hover{
+        opacity: 0.5;
+        transition: 0.3s;
     }
 
     .form-buttons-content{
@@ -215,8 +223,9 @@ a{
     height: 100vh;
     width: 100vw;
     opacity: 0;
-    background-color: var(--bc02);
+	backdrop-filter: blur(5px) brightness(70%);
     pointer-events: none;
+    background-color:rgba(var(--bc00-r), var(--bc00-g), var(--bc00-b), 0.5);
 }
 
 .form-tops{
@@ -240,7 +249,7 @@ a{
 }
 
 #form-chk:checked ~ .form-back{
-    opacity: 0.3;
+    opacity: 1;
     pointer-events: all;
 }
 
