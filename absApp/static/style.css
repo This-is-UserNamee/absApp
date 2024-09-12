@@ -106,6 +106,7 @@ a{
 }
 
 .card{
+    position: relative;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-areas: "name name month reason reason reason reason reason reason reason";
@@ -150,6 +151,19 @@ a{
 
 #form-chk{
     display: none;
+}
+
+.delete{
+    position: absolute;
+    width: 1.2rem;
+    padding-right: 20px;
+    right: 0%;
+    bottom: 50%;
+    transform: translate(0%, 55%);
+
+    svg{
+        fill: var(--bc00);
+    }
 }
 
 .form{
@@ -348,6 +362,12 @@ a{
         .month{
             border-right: none;
         }
+    }
+
+    .delete{
+        width: 1rem;
+        margin-bottom: 20px;
+        bottom: 0%;
     }
 
     .form{
