@@ -206,9 +206,13 @@ a{
     }
 
     .form-button{
-        background-color: var(--bc02);
-        color: var(--bc04);
-        border: none;
+        position: relative;
+        background-color: transparent;
+        /* background-color: var(--bc04); */
+        /* background-color: var(--bc02); */
+        color: var(--bc00);
+        /* color: var(--bc04); */
+        border: var(--bc00) solid 1px;
         border-radius: 5px;
         padding: 10px;
         box-shadow: 0px 0px 10px 0px rgba(17, 17, 26, 0.18);
@@ -216,21 +220,34 @@ a{
         margin: 5px;
     }
 
-    .form-button:hover,
-    .form-cancel:hover{
-        opacity: 0.5;
+    .form-button:hover{
+        /* opacity: 0.5; */
+        /* background-color: var(--bc00); */
+        color: var(--bc04);
+        transition: 0.3s;
+    }
+
+    .form-button::after{
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: var(--bc00);
+        width: 0%;
+        height: 100%;
+        z-index: -1;
+        transition: 0.3s;
+    }
+
+    .form-button:hover::after{
+        width: 100%;
+        height: 100%;
         transition: 0.3s;
     }
 
     .form-buttons-content{
         display: flex;
         justify-content: space-between;
-    }
-
-    .form-button:hover,
-    .form-cancel:hover{
-        opacity: 0.5;
-        transition: 0.3s;
     }
 }
 
@@ -243,7 +260,6 @@ a{
     opacity: 0;
 	backdrop-filter: blur(5px) brightness(70%);
     pointer-events: none;
-    background-color:rgba(var(--bc00-r), var(--bc00-g), var(--bc00-b), 0.5);
 }
 
 .form-tops{
@@ -259,6 +275,16 @@ a{
         color: var(--bc04);
     }
 
+}
+
+#form-submit{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    opacity: 0;
 }
 
 #form-chk:checked ~ .form{
