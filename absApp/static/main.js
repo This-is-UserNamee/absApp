@@ -25,7 +25,7 @@ function changeMonth(month) {
     let cnt = lcs(month).length;
     for (let i = 1; i <= 12; i++) {
         if (month == 'All'){
-            cnt = lcs('card').length;
+            cnt = lcs('card').length - 1;
             styleSheet.setProperty(`--month${i}-property`, 'grid');
         }else{
             styleSheet.setProperty(`--month${i}-property`, `month${i}` == month ? 'grid' : 'none');
