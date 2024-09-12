@@ -6,8 +6,6 @@
     --bc04: #ffffff;
 }
 
-/* test */
-
 *{
     margin: 0px;
     padding: 0px;
@@ -225,8 +223,9 @@ a{
     height: 100vh;
     width: 100vw;
     opacity: 0;
-    background-color: var(--bc00);
+	backdrop-filter: blur(5px) brightness(70%);
     pointer-events: none;
+    background-color:rgba(var(--bc00-r), var(--bc00-g), var(--bc00-b), 0.5);
 }
 
 .form-tops{
@@ -250,7 +249,7 @@ a{
 }
 
 #form-chk:checked ~ .form-back{
-    opacity: 0.5;
+    opacity: 1;
     pointer-events: all;
 }
 
