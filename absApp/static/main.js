@@ -45,3 +45,7 @@ function clickAdd(){
     const mn = parseInt(monthList.value.replace(/\D/g, ''), 10);
     li('form-month').value = 1 <= mn && mn <= 12 ? mn : new Date().getMonth() + 1;
 }
+
+function clickDelete(){
+    localStorage.setItem('monthNum', monthList.value);
+}

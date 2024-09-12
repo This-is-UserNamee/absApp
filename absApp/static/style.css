@@ -1,9 +1,17 @@
 :root{
-    --bc00: #000000;
+    /* --bc00: #000000;
     --bc01: #3f3f3f;
     --bc02: #7f7f7f;
     --bc03: #bfbfbf;
-    --bc04: #ffffff;
+    --bc04: #ffffff; */
+    --bc00: #01161e;
+    --bc01: #124559;
+    --bc02: #598392;
+    --bc03: #aec3b0;
+    --bc04: #fcfff5;
+
+    color: var(--bc00);
+    background-color: var(--bc04);
 }
 
 *{
@@ -18,7 +26,6 @@ body{
 a{
     text-decoration: none;
 }
-
 
 #title{
     background-color: var(--bc01);
