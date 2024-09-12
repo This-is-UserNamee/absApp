@@ -9,7 +9,9 @@ let styleSheet = document.documentElement.style;
 let monthList = li('month-list');
 {
     let value = localStorage.getItem('monthNum');
-    monthList.value = value !== null ? value : 'All';
+    // monthList.value = value !== null ? value : 'All';
+    monthList.value = value !== null ? value : `month${new Date().getMonth() + 1}`;
+    localStorage.removeItem('monthNum');
 }
 
 for (let i = 1; i <= 12; i++){
@@ -19,17 +21,27 @@ for (let i = 1; i <= 12; i++){
 monthList.addEventListener('change', () => {changeMonth(monthList.value)});
 changeMonth(monthList.value);
 
+li('form-submit').addEventListener('click', () => {
+    let monthTxt = li('form-month');
+    localStorage.setItem('monthNum', `month${monthTxt.value}`);
+});
+li('add1').addEventListener('click', clickAdd);
+li('add2').addEventListener('click', clickAdd);
 
 function changeMonth(month) {
-    localStorage.setItem('monthNum', month);
-    let cnt = lcs(month).length;
+    // localStorage.setItem('monthNum', month);
+    let cnt = month == 'All' ? lcs('card').length - 1 : lcs(month).length;
     for (let i = 1; i <= 12; i++) {
         if (month == 'All'){
-            cnt = lcs('card').length - 1;
             styleSheet.setProperty(`--month${i}-property`, 'grid');
-        }else{
+        } else {
             styleSheet.setProperty(`--month${i}-property`, `month${i}` == month ? 'grid' : 'none');
         }
     }
     styleSheet.setProperty('--null-dialog-property', cnt == 0 ? 'block' : 'none');
+}
+
+function clickAdd(){
+    const mn = parseInt(monthList.value.replace(/\D/g, ''), 10);
+    li('form-month').value = 1 <= mn && mn <= 12 ? mn : new Date().getMonth() + 1;
 }
