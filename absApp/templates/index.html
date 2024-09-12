@@ -61,8 +61,9 @@
                         {% for instance in month %}
                         <div class="card {{ nm }}">
                             <div class="name">{{ instance.name }}</div>
-                            <div class="month">{{ instance.month }}</div>
+                            <div class="month">{{ n }}</div>
                             <div class="reason">{{ instance.reason }}</div>
+                            <a href="{{ url_for('delete', id=instance.id, monthN=n) }}">DELETE</a>
                         </div>
                         {% endfor %}
                         {#{% endif %}#}

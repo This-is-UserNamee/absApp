@@ -2,7 +2,6 @@ from flask import Flask
 from flask import render_template, request, redirect, url_for
 import db
 import sqlite3
-import datetime
 
 DATABASE = 'database.db'
 
@@ -12,12 +11,6 @@ db.create_months_table()
 
 @app.route('/')
 def index():
-    current_month = datetime.datetime.now().month
-    default_monthN = 'month'+str(current_month)
-    monthN = request.args.get('monthN', default_monthN)
-    con = sqlite3.connect(DATABASE)
-    db_month = con.execute('SELECT * FROM '+monthN).fetchall()
-    con.close()
     
     months = [[]]
     i = 1
@@ -52,18 +45,17 @@ def register():
     con.execute(sql, (name, reason))
     con.commit()
     con.close()
-    return redirect(url_for('index', monthN = 'month'+month))
+    return redirect(url_for('index'))
     
 @app.route('/delete')
 def delete():
     id = request.args.get('id')
     monthN = request.args.get('monthN')
-    print(id)
-    print(monthN)
-    # con = sqlite3.connect(DATABASE)
-    # con.execute('DELETE FROM '+monthN+' WHERE name="apple"')
-    # con.commit()
-    # con.close()
+    sql = 'DELETE FROM month'+str(monthN)+' WHERE id='+str(id)
+    con = sqlite3.connect(DATABASE)
+    con.execute(sql)
+    con.commit()
+    con.close()
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
